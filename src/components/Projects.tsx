@@ -6,7 +6,9 @@ const FEATURED_COUNT = 9;
 
 export default async function Projects() {
   const repos = await getGithubRepos(profile.github);
-  const featured = repos.slice(0, FEATURED_COUNT);
+  const hidden: readonly string[] = profile.hiddenRepos;
+  const visible = repos.filter((repo) => !hidden.includes(repo.name));
+  const featured = visible.slice(0, FEATURED_COUNT);
 
   return (
     <section id="proyectos" className="mx-auto max-w-4xl px-6 py-16">
@@ -22,7 +24,14 @@ export default async function Projects() {
       ) : (
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {featured.map((repo) => (
-            <ProjectCard key={repo.id} repo={repo} />
+            <ProjectCard
+              key={repo.id}
+              name={repo.name}
+              description={repo.description}
+              url={repo.homepage || repo.url}
+              language={repo.language}
+              stars={repo.stars}
+            />
           ))}
         </div>
       )}

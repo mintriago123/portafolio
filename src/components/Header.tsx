@@ -3,6 +3,7 @@ import { profile } from "@/lib/profile";
 
 const links = [
   { href: "#proyectos", label: "Proyectos" },
+  { href: "#colaboraciones", label: "Colaboraciones" },
   { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#contacto", label: "Contacto" },
 ];
