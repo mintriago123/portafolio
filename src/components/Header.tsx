@@ -14,12 +14,33 @@ const links = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [activeHref, setActiveHref] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = links
+      .map((link) => document.querySelector(link.href))
+      .filter((el): el is Element => !!el);
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveHref(`#${entry.target.id}`);
+          }
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -34,12 +55,16 @@ export default function Header() {
         <Link href="#top" className="font-semibold tracking-tight">
           {profile.name}
         </Link>
-        <nav className="hidden gap-6 text-sm font-medium text-muted sm:flex">
+        <nav className="hidden gap-6 text-sm font-medium sm:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-foreground"
+              className={`transition-colors hover:text-foreground ${
+                activeHref === link.href
+                  ? "font-semibold text-foreground"
+                  : "text-muted"
+              }`}
             >
               {link.label}
             </Link>

@@ -2,7 +2,7 @@ import { profile } from "@/lib/profile";
 
 export default function Contact() {
   return (
-    <section id="contacto" className="relative overflow-hidden">
+    <section id="contacto" className="relative scroll-mt-24 overflow-hidden">
       <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-[#eaf3e9]/70" />
 
       <div className="relative mx-auto max-w-4xl px-6 py-16">

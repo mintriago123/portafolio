@@ -5,7 +5,10 @@ import ProjectsGridSkeleton from "./ProjectsGridSkeleton";
 
 export default function Projects() {
   return (
-    <section id="proyectos" className="mx-auto max-w-4xl px-6 py-16">
+    <section
+      id="proyectos"
+      className="mx-auto max-w-4xl scroll-mt-24 px-6 py-16"
+    >
       <span className="text-sm font-semibold text-accent">
         Lo que construyo
       </span>

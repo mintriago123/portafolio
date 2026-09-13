@@ -1,16 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 type NavLink = { href: string; label: string };
 
 export default function MobileNav({ links }: { links: NavLink[] }) {
   const [open, setOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (open) {
+      firstLinkRef.current?.focus();
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
+  const close = () => setOpen(false);
 
   return (
     <div className="sm:hidden">
       <button
+        ref={buttonRef}
         type="button"
         aria-label={open ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={open}
@@ -40,12 +63,13 @@ export default function MobileNav({ links }: { links: NavLink[] }) {
         }`}
       >
         <ul className="flex flex-col gap-4 text-sm font-medium text-muted">
-          {links.map((link) => (
+          {links.map((link, index) => (
             <li key={link.href}>
               <Link
                 href={link.href}
+                ref={index === 0 ? firstLinkRef : undefined}
                 tabIndex={open ? 0 : -1}
-                onClick={() => setOpen(false)}
+                onClick={close}
                 className="block transition-colors hover:text-foreground"
               >
                 {link.label}

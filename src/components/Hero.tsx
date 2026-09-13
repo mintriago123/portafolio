@@ -2,7 +2,7 @@ import { profile } from "@/lib/profile";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
+    <section id="top" className="relative scroll-mt-24 overflow-hidden">
       <div className="pointer-events-none absolute -right-40 -top-48 h-[520px] w-[520px] rounded-full bg-accent-soft/70" />
       <div className="pointer-events-none absolute -bottom-56 -left-40 h-[440px] w-[440px] rounded-full bg-[#eaf3e9]/60" />
 
