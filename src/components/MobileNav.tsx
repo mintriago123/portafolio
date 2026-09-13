@@ -34,23 +34,26 @@ export default function MobileNav({ links }: { links: NavLink[] }) {
         </svg>
       </button>
 
-      {open && (
-        <nav className="absolute inset-x-0 top-full border-b border-border bg-background px-6 py-4">
-          <ul className="flex flex-col gap-4 text-sm font-medium text-muted">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
+      <nav
+        className={`absolute inset-x-0 top-full overflow-hidden border-b border-border bg-background px-6 transition-[max-height,opacity] duration-300 ease-out ${
+          open ? "max-h-64 py-4 opacity-100" : "max-h-0 py-0 opacity-0"
+        }`}
+      >
+        <ul className="flex flex-col gap-4 text-sm font-medium text-muted">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                tabIndex={open ? 0 : -1}
+                onClick={() => setOpen(false)}
+                className="block transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 }

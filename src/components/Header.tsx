@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { profile } from "@/lib/profile";
 import MobileNav from "./MobileNav";
@@ -10,8 +13,23 @@ const links = [
 ];
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 border-b bg-background/85 backdrop-blur transition-shadow duration-300 ${
+        scrolled
+          ? "border-border shadow-[0_8px_24px_-16px_rgba(31,46,51,0.35)]"
+          : "border-transparent shadow-none"
+      }`}
+    >
       <div className="relative mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
         <Link href="#top" className="font-semibold tracking-tight">
           {profile.name}

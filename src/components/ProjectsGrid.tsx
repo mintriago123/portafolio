@@ -2,6 +2,7 @@ import { getGithubRepos } from "@/lib/github";
 import { profile } from "@/lib/profile";
 import { projectDetails } from "@/lib/projectDetails";
 import ProjectCard from "./ProjectCard";
+import StaggerReveal from "./StaggerReveal";
 
 const FEATURED_COUNT = 9;
 
@@ -20,12 +21,13 @@ export default async function ProjectsGrid() {
   }
 
   return (
-    <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
-      {featured.map((repo) => {
+    <StaggerReveal className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {featured.map((repo, index) => {
         const details = projectDetails[repo.name];
         return (
           <ProjectCard
             key={repo.id}
+            index={index}
             name={repo.name}
             category={details?.category ?? "Proyecto"}
             tagline={details?.tagline ?? repo.description ?? "Sin descripción."}
@@ -37,6 +39,6 @@ export default async function ProjectsGrid() {
           />
         );
       })}
-    </div>
+    </StaggerReveal>
   );
 }

@@ -7,6 +7,7 @@ type ProjectCardProps = {
   url: string;
   stars?: number;
   featured?: boolean;
+  index?: number;
 };
 
 function CheckIcon({ className }: { className?: string }) {
@@ -53,14 +54,20 @@ export default function ProjectCard({
   url,
   stars,
   featured,
+  index,
 }: ProjectCardProps) {
+  const style = index !== undefined
+    ? ({ "--stagger-i": index } as React.CSSProperties)
+    : undefined;
+
   if (featured) {
     return (
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex flex-col gap-6 rounded-2xl bg-accent-dark p-8 text-[#f3f6f6] sm:col-span-2 sm:flex-row sm:justify-between"
+        style={style}
+        className="group flex flex-col gap-6 rounded-2xl bg-accent-dark p-8 text-[#f3f6f6] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg sm:col-span-2 sm:flex-row sm:justify-between"
       >
         <div className="flex max-w-md flex-col gap-3.5">
           <span className="w-fit rounded-full bg-[#2c4a46] px-2.5 py-1 text-xs font-semibold text-[#8fd9cb]">
@@ -101,7 +108,8 @@ export default function ProjectCard({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-7 transition-colors hover:border-accent/40"
+      style={style}
+      className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-7 transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg"
     >
       <div className="flex items-center justify-between gap-2">
         <span className="rounded-full bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent">

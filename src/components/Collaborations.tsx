@@ -1,4 +1,5 @@
 import { profile } from "@/lib/profile";
+import StaggerReveal from "./StaggerReveal";
 
 export default function Collaborations() {
   return (
@@ -8,14 +9,15 @@ export default function Collaborations() {
         Proyectos de otras personas en los que he contribuido con código.
       </p>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {profile.collaborations.map((project) => (
+      <StaggerReveal className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {profile.collaborations.map((project, index) => (
           <a
             key={project.url}
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col gap-2.5 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-accent/40"
+            style={{ "--stagger-i": index } as React.CSSProperties}
+            className="flex flex-col gap-2.5 rounded-2xl border border-border bg-card p-6 transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg"
           >
             <h3 className="font-bold tracking-tight">{project.name}</h3>
             <p className="text-sm leading-relaxed text-muted">
@@ -29,7 +31,7 @@ export default function Collaborations() {
             </span>
           </a>
         ))}
-      </div>
+      </StaggerReveal>
     </section>
   );
 }

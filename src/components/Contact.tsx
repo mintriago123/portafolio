@@ -13,7 +13,7 @@ export default function Contact() {
         <div className="mt-6 flex flex-wrap gap-4">
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2f6f65]"
+            className="rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#2f6f65] hover:shadow-lg"
           >
             {profile.email}
           </a>
@@ -21,7 +21,7 @@ export default function Contact() {
             href={profile.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-[10px] border-[1.5px] border-border px-6 py-3.5 text-sm font-semibold transition-colors hover:bg-card"
+            className="rounded-[10px] border-[1.5px] border-border px-6 py-3.5 text-sm font-semibold transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-card hover:shadow-lg"
           >
             GitHub
           </a>
