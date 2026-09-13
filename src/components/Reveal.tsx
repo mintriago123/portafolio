@@ -29,7 +29,9 @@ export default function Reveal({ children }: { children: React.ReactNode }) {
     <div
       ref={ref}
       className={`transition-all duration-1000 ease-out motion-reduce:transition-none motion-reduce:transform-none ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        visible
+          ? "translate-y-0 scale-100 opacity-100"
+          : "translate-y-10 scale-95 opacity-0"
       }`}
     >
       {children}

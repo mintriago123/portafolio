@@ -60,14 +60,24 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/* Usamos el shorthand `transform` (no las propiedades sueltas `translate`/
+   `scale`) a propósito: Tailwind envuelve sus utilities en @layer, así que
+   cualquier regla nuestra sin layer les gana siempre por prioridad de cascade
+   layers, sin importar especificidad — si esto usara `translate`/`scale`
+   sueltos pisaría permanentemente el hover:-translate-y-1 de las tarjetas.
+   `transform` es una propiedad distinta y compone bien con esas utilities.
+   El `scale` es lo que hace el movimiento perceptible sin importar el
+   tamaño/resolución de pantalla: un desplazamiento en px fijos se vuelve
+   minúsculo en un monitor grande, pero un cambio de escala relativo al
+   propio elemento se ve igual siempre. */
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -79,7 +89,7 @@ button:focus-visible {
    delay via --stagger-i (fijado inline por el server). */
 .stagger-children > * {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(20px) scale(0.94);
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out;
@@ -88,7 +98,7 @@ button:focus-visible {
 
 .stagger-children.stagger-visible > * {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
