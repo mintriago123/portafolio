@@ -1,6 +1,9 @@
 export const profile = {
   name: "Michael Intriago",
   role: "Desarrollador de Software",
+  // Placeholder hasta que exista un dominio real; se puede sobreescribir
+  // con la env var sin tocar código.
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://michaelintriago.dev",
   bio: "Construyo aplicaciones web, herramientas y proyectos personales. Me interesan el desarrollo full-stack, los sistemas y los videojuegos.",
   github: "mintriago123",
   githubUrl: "https://github.com/mintriago123",

@@ -26,7 +26,12 @@ export async function getGithubRepos(username: string): Promise<Repo[]> {
   const res = await fetch(
     `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
     {
-      headers: { Accept: "application/vnd.github+json" },
+      headers: {
+        Accept: "application/vnd.github+json",
+        ...(process.env.GITHUB_TOKEN && {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        }),
+      },
       next: { revalidate: 3600 },
     }
   );

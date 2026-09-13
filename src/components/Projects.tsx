@@ -1,16 +1,9 @@
-import { getGithubRepos } from "@/lib/github";
+import { Suspense } from "react";
 import { profile } from "@/lib/profile";
-import { projectDetails } from "@/lib/projectDetails";
-import ProjectCard from "./ProjectCard";
+import ProjectsGrid from "./ProjectsGrid";
+import ProjectsGridSkeleton from "./ProjectsGridSkeleton";
 
-const FEATURED_COUNT = 9;
-
-export default async function Projects() {
-  const repos = await getGithubRepos(profile.github);
-  const hidden: readonly string[] = profile.hiddenRepos;
-  const visible = repos.filter((repo) => !hidden.includes(repo.name));
-  const featured = visible.slice(0, FEATURED_COUNT);
-
+export default function Projects() {
   return (
     <section id="proyectos" className="mx-auto max-w-4xl px-6 py-16">
       <h2 className="text-3xl font-bold tracking-tight">Proyectos</h2>
@@ -20,30 +13,9 @@ export default async function Projects() {
         trabajo.
       </p>
 
-      {featured.length === 0 ? (
-        <p className="mt-8 text-sm text-subtle">
-          No se pudieron cargar los proyectos en este momento.
-        </p>
-      ) : (
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {featured.map((repo) => {
-            const details = projectDetails[repo.name];
-            return (
-              <ProjectCard
-                key={repo.id}
-                name={repo.name}
-                category={details?.category ?? "Proyecto"}
-                tagline={details?.tagline ?? repo.description ?? "Sin descripción."}
-                highlights={details?.highlights ?? []}
-                tags={details?.tags ?? (repo.language ? [repo.language] : [])}
-                url={repo.homepage || repo.url}
-                stars={repo.stars}
-                featured={details?.featured}
-              />
-            );
-          })}
-        </div>
-      )}
+      <Suspense fallback={<ProjectsGridSkeleton />}>
+        <ProjectsGrid />
+      </Suspense>
 
       <a
         href={`${profile.githubUrl}?tab=repositories`}
