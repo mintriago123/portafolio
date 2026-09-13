@@ -17,7 +17,9 @@ export default function Reveal({ children }: { children: React.ReactNode }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      // Negative bottom margin delays the trigger until the section is
+      // actually well into view, instead of firing on a 1px sliver.
+      { threshold: 0, rootMargin: "0px 0px -20% 0px" }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -26,8 +28,8 @@ export default function Reveal({ children }: { children: React.ReactNode }) {
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out motion-reduce:transition-none motion-reduce:transform-none ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+      className={`transition-all duration-1000 ease-out motion-reduce:transition-none motion-reduce:transform-none ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
       }`}
     >
       {children}

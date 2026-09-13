@@ -8,7 +8,7 @@ export default function About() {
 
   return (
     <section id="sobre-mi" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-accent-soft/50" />
+      <div className="pointer-events-none absolute -left-32 top-0 h-80 w-80 rounded-full bg-accent-soft/70" />
 
       <div className="relative mx-auto flex max-w-4xl flex-col gap-10 px-6 py-16 sm:flex-row sm:items-start">
         <div className="flex shrink-0 items-center justify-center sm:justify-start">
