@@ -5,6 +5,7 @@ import Collaborations from "@/components/Collaborations";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
@@ -12,10 +13,18 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Projects />
-        <Collaborations />
-        <About />
-        <Contact />
+        <Reveal>
+          <Projects />
+        </Reveal>
+        <Reveal>
+          <Collaborations />
+        </Reveal>
+        <Reveal>
+          <About />
+        </Reveal>
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
       <Footer />
     </div>
