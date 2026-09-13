@@ -6,7 +6,8 @@ export default function Contact() {
       <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-[#eaf3e9]/70" />
 
       <div className="relative mx-auto max-w-4xl px-6 py-16">
-        <h2 className="text-3xl font-bold tracking-tight">Contacto</h2>
+        <span className="text-sm font-semibold text-accent">Hablemos</span>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight">Contacto</h2>
         <p className="mt-4 max-w-xl text-base leading-7 text-muted">
           ¿Quieres hablar de un proyecto o una oportunidad? Escríbeme.
         </p>

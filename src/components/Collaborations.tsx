@@ -4,7 +4,12 @@ import StaggerReveal from "./StaggerReveal";
 export default function Collaborations() {
   return (
     <section id="colaboraciones" className="mx-auto max-w-4xl px-6 py-16">
-      <h2 className="text-3xl font-bold tracking-tight">Colaboraciones</h2>
+      <span className="text-sm font-semibold text-accent">
+        Trabajo en equipo
+      </span>
+      <h2 className="mt-2 text-3xl font-bold tracking-tight">
+        Colaboraciones
+      </h2>
       <p className="mt-2 text-sm text-muted">
         Proyectos de otras personas en los que he contribuido con código.
       </p>

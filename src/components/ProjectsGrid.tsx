@@ -30,6 +30,7 @@ export default async function ProjectsGrid() {
             index={index}
             name={repo.name}
             category={details?.category ?? "Proyecto"}
+            icon={details?.icon ?? "code"}
             tagline={details?.tagline ?? repo.description ?? "Sin descripción."}
             highlights={details?.highlights ?? []}
             tags={details?.tags ?? (repo.language ? [repo.language] : [])}

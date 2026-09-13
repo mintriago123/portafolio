@@ -6,7 +6,10 @@ import ProjectsGridSkeleton from "./ProjectsGridSkeleton";
 export default function Projects() {
   return (
     <section id="proyectos" className="mx-auto max-w-4xl px-6 py-16">
-      <h2 className="text-3xl font-bold tracking-tight">Proyectos</h2>
+      <span className="text-sm font-semibold text-accent">
+        Lo que construyo
+      </span>
+      <h2 className="mt-2 text-3xl font-bold tracking-tight">Proyectos</h2>
       <p className="mt-2 max-w-xl text-sm text-muted">
         Una selección de proyectos propios, obtenida en vivo desde GitHub.
         Cada tarjeta resume el objetivo, el stack y lo más destacado del

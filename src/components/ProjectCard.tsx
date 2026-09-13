@@ -1,6 +1,9 @@
+import { CategoryIcon, type CategoryIconKey } from "./icons";
+
 type ProjectCardProps = {
   name: string;
   category: string;
+  icon: CategoryIconKey;
   tagline: string;
   highlights: string[];
   tags: string[];
@@ -48,6 +51,7 @@ function ExternalLinkIcon() {
 export default function ProjectCard({
   name,
   category,
+  icon,
   tagline,
   highlights,
   tags,
@@ -70,7 +74,8 @@ export default function ProjectCard({
         className="group flex flex-col gap-6 rounded-2xl bg-accent-dark p-8 text-[#f3f6f6] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg sm:col-span-2 sm:flex-row sm:justify-between"
       >
         <div className="flex max-w-md flex-col gap-3.5">
-          <span className="w-fit rounded-full bg-[#2c4a46] px-2.5 py-1 text-xs font-semibold text-[#8fd9cb]">
+          <span className="flex w-fit items-center gap-1.5 rounded-full bg-[#2c4a46] px-2.5 py-1 text-xs font-semibold text-[#8fd9cb]">
+            <CategoryIcon icon={icon} className="h-3.5 w-3.5" />
             {category}
           </span>
           <h3 className="text-xl font-bold text-white group-hover:underline">
@@ -109,50 +114,58 @@ export default function ProjectCard({
       target="_blank"
       rel="noopener noreferrer"
       style={style}
-      className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-7 transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-[transform,box-shadow,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg"
     >
-      <div className="flex items-center justify-between gap-2">
-        <span className="rounded-full bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent">
-          {category}
-        </span>
-        {!!stars && stars > 0 && (
-          <span className="shrink-0 text-xs text-subtle">★ {stars}</span>
-        )}
+      {/* Placeholder de portada — reemplazar por una captura real del proyecto */}
+      <div className="flex aspect-[16/9] items-center justify-center bg-accent-soft/60">
+        <CategoryIcon icon={icon} className="h-9 w-9 text-accent/60" />
       </div>
-      <div>
-        <h3 className="mb-1.5 text-lg font-bold tracking-tight group-hover:underline">
-          {name}
-        </h3>
-        <p className="text-sm text-muted">{tagline}</p>
-      </div>
-      {highlights.length > 0 && (
-        <ul className="flex flex-col gap-2">
-          {highlights.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-2 text-sm leading-snug text-[#374448]"
-            >
-              <CheckIcon className="mt-0.5 shrink-0 text-accent" />
-              {item}
-            </li>
-          ))}
-        </ul>
-      )}
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full border border-border bg-tag px-2.5 py-1 text-xs font-medium text-[#374448]"
-          >
-            {tag}
+
+      <div className="flex flex-1 flex-col gap-4 p-7">
+        <div className="flex items-center justify-between gap-2">
+          <span className="flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent">
+            <CategoryIcon icon={icon} className="h-3.5 w-3.5" />
+            {category}
           </span>
-        ))}
-      </div>
-      <div className="mt-auto flex gap-5 border-t border-[#eef2f1] pt-3.5">
-        <span className="flex items-center gap-1.5 text-sm font-semibold text-accent">
-          Ver repositorio
-          <ExternalLinkIcon />
-        </span>
+          {!!stars && stars > 0 && (
+            <span className="shrink-0 text-xs text-subtle">★ {stars}</span>
+          )}
+        </div>
+        <div>
+          <h3 className="mb-1.5 text-lg font-bold tracking-tight group-hover:underline">
+            {name}
+          </h3>
+          <p className="text-sm text-muted">{tagline}</p>
+        </div>
+        {highlights.length > 0 && (
+          <ul className="flex flex-col gap-2">
+            {highlights.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2 text-sm leading-snug text-[#374448]"
+              >
+                <CheckIcon className="mt-0.5 shrink-0 text-accent" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-border bg-tag px-2.5 py-1 text-xs font-medium text-[#374448]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="mt-auto flex gap-5 border-t border-[#eef2f1] pt-3.5">
+          <span className="flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Ver repositorio
+            <ExternalLinkIcon />
+          </span>
+        </div>
       </div>
     </a>
   );

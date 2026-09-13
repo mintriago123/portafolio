@@ -1,5 +1,8 @@
+import type { CategoryIconKey } from "@/components/icons";
+
 export type ProjectDetail = {
   category: string;
+  icon: CategoryIconKey;
   tagline: string;
   highlights: string[];
   tags: string[];
@@ -11,6 +14,7 @@ export type ProjectDetail = {
 export const projectDetails: Record<string, ProjectDetail> = {
   "FPC-10a5-9800": {
     category: "Sistemas · Linux",
+    icon: "systems",
     tagline: "Driver e instalador del lector de huellas FPC para Linux.",
     highlights: [
       "Soporta Fedora, Fedora Atomic, Ubuntu y Arch",
@@ -20,6 +24,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   },
   ia_usabilidad: {
     category: "IA · Backend",
+    icon: "ai",
     tagline:
       "Simulador ATS: sistema experto de matching entre vacantes y candidatos con IA.",
     highlights: [
@@ -30,6 +35,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   },
   "kart-test-game-godot": {
     category: "Videojuego · Godot",
+    icon: "game",
     tagline:
       "MichiKart: juego de carreras arcade estilo Mario Kart, hecho con Godot 4.",
     highlights: [
@@ -40,6 +46,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   },
   tesis_banco_alimentos: {
     category: "Web · Tesis",
+    icon: "web",
     tagline:
       "Plataforma web para la gestión del banco de alimentos universitario.",
     highlights: [
@@ -50,6 +57,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   },
   "poly-builder": {
     category: "Videojuego · Godot",
+    icon: "game",
     tagline: "Prototipo de juego de construcción y simulación en Godot.",
     highlights: [
       "Sistemas de cámara, edificación y simulación",
@@ -59,6 +67,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   },
   "proyecto-integrador": {
     category: "Proyecto integrador · Datos",
+    icon: "data",
     tagline:
       "Pipeline de datos y modelo predictivo sobre personas desaparecidas en Ecuador.",
     highlights: [
@@ -71,6 +80,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
   },
   "nixos-thinkbook-13s-arb-g4": {
     category: "Sistemas · Dotfiles",
+    icon: "systems",
     tagline: "Configuración personal de NixOS con Home Manager y GNOME.",
     highlights: [
       "Estructura modular con Home Manager",

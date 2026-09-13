@@ -20,7 +20,14 @@ export default function About() {
         </div>
 
         <div className="flex flex-1 flex-col gap-5">
-          <h2 className="text-3xl font-bold tracking-tight">Sobre mí</h2>
+          <div>
+            <span className="text-sm font-semibold text-accent">
+              Quién soy
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight">
+              Sobre mí
+            </h2>
+          </div>
           <p className="max-w-2xl text-base leading-7 text-muted">
             {profile.bio}
           </p>
