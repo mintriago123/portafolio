@@ -1,21 +1,39 @@
 import { profile } from "@/lib/profile";
 
 export default function About() {
+  const initials = profile.name
+    .split(" ")
+    .map((part) => part[0])
+    .join("");
+
   return (
-    <section id="sobre-mi" className="mx-auto max-w-4xl px-6 py-16">
-      <h2 className="text-2xl font-semibold tracking-tight">Sobre mí</h2>
-      <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
-        {profile.bio}
-      </p>
-      <div className="mt-8 flex flex-wrap gap-2">
-        {profile.skills.map((skill) => (
-          <span
-            key={skill}
-            className="rounded-full border border-black/[.08] px-3 py-1 text-sm text-zinc-700 dark:border-white/[.145] dark:text-zinc-300"
-          >
-            {skill}
+    <section
+      id="sobre-mi"
+      className="mx-auto flex max-w-4xl flex-col gap-10 px-6 py-16 sm:flex-row sm:items-start"
+    >
+      <div className="flex shrink-0 items-center justify-center sm:justify-start">
+        <div className="flex h-32 w-32 items-center justify-center rounded-full bg-accent-soft">
+          <span className="text-3xl font-bold text-[#2f6f65]">
+            {initials}
           </span>
-        ))}
+        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col gap-5">
+        <h2 className="text-3xl font-bold tracking-tight">Sobre mí</h2>
+        <p className="max-w-2xl text-base leading-7 text-muted">
+          {profile.bio}
+        </p>
+        <div className="flex flex-wrap gap-2.5">
+          {profile.skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-medium"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

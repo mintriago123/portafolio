@@ -1,5 +1,6 @@
 import { getGithubRepos } from "@/lib/github";
 import { profile } from "@/lib/profile";
+import { projectDetails } from "@/lib/projectDetails";
 import ProjectCard from "./ProjectCard";
 
 const FEATURED_COUNT = 9;
@@ -12,27 +13,35 @@ export default async function Projects() {
 
   return (
     <section id="proyectos" className="mx-auto max-w-4xl px-6 py-16">
-      <h2 className="text-2xl font-semibold tracking-tight">Proyectos</h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Repositorios públicos obtenidos directamente desde GitHub.
+      <h2 className="text-3xl font-bold tracking-tight">Proyectos</h2>
+      <p className="mt-2 max-w-xl text-sm text-muted">
+        Una selección de proyectos propios, obtenida en vivo desde GitHub.
+        Cada tarjeta resume el objetivo, el stack y lo más destacado del
+        trabajo.
       </p>
 
       {featured.length === 0 ? (
-        <p className="mt-8 text-sm text-zinc-500 dark:text-zinc-400">
+        <p className="mt-8 text-sm text-subtle">
           No se pudieron cargar los proyectos en este momento.
         </p>
       ) : (
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {featured.map((repo) => (
-            <ProjectCard
-              key={repo.id}
-              name={repo.name}
-              description={repo.description}
-              url={repo.homepage || repo.url}
-              language={repo.language}
-              stars={repo.stars}
-            />
-          ))}
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {featured.map((repo) => {
+            const details = projectDetails[repo.name];
+            return (
+              <ProjectCard
+                key={repo.id}
+                name={repo.name}
+                category={details?.category ?? "Proyecto"}
+                tagline={details?.tagline ?? repo.description ?? "Sin descripción."}
+                highlights={details?.highlights ?? []}
+                tags={details?.tags ?? (repo.language ? [repo.language] : [])}
+                url={repo.homepage || repo.url}
+                stars={repo.stars}
+                featured={details?.featured}
+              />
+            );
+          })}
         </div>
       )}
 
@@ -40,7 +49,7 @@ export default async function Projects() {
         href={`${profile.githubUrl}?tab=repositories`}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-8 inline-block text-sm font-medium underline underline-offset-4"
+        className="mt-8 inline-block text-sm font-semibold text-accent underline underline-offset-4"
       >
         Ver todos los repositorios en GitHub →
       </a>

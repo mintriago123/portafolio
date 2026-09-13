@@ -4,35 +4,46 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-24 sm:py-32"
+      className="relative overflow-hidden"
     >
-      <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-        Hola, soy
-      </p>
-      <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-        {profile.name}
-      </h1>
-      <p className="text-xl text-zinc-600 dark:text-zinc-400">
-        {profile.role}
-      </p>
-      <p className="max-w-xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
-        {profile.bio}
-      </p>
-      <div className="flex gap-4 pt-2">
-        <a
-          href="#proyectos"
-          className="rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
-        >
-          Ver proyectos
-        </a>
-        <a
-          href={profile.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full border border-black/[.08] px-5 py-2.5 text-sm font-medium transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-        >
-          GitHub
-        </a>
+      <div className="pointer-events-none absolute -right-40 -top-48 h-[520px] w-[520px] rounded-full bg-accent-soft/70" />
+      <div className="pointer-events-none absolute -bottom-56 -left-40 h-[440px] w-[440px] rounded-full bg-[#eaf3e9]/60" />
+
+      <div className="relative mx-auto flex max-w-4xl flex-col gap-5 px-6 py-24 sm:py-32">
+        <span className="text-sm font-semibold text-accent">Hola, soy</span>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          {profile.name}
+        </h1>
+        <p className="text-xl font-semibold text-accent">{profile.role}</p>
+        <p className="max-w-xl text-base leading-7 text-muted">
+          {profile.bio}
+        </p>
+        <div className="flex gap-4 pt-2">
+          <a
+            href="#proyectos"
+            className="flex items-center gap-2 rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2f6f65]"
+          >
+            Ver proyectos
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </a>
+          <a
+            href="#contacto"
+            className="rounded-[10px] border-[1.5px] border-border px-6 py-3.5 text-sm font-semibold transition-colors hover:bg-card"
+          >
+            Contacto
+          </a>
+        </div>
       </div>
     </section>
   );

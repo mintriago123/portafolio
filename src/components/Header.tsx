@@ -10,12 +10,12 @@ const links = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-black/[.08] bg-white/80 backdrop-blur dark:border-white/[.08] dark:bg-black/80">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
         <Link href="#top" className="font-semibold tracking-tight">
           {profile.name}
         </Link>
-        <nav className="flex gap-6 text-sm text-zinc-600 dark:text-zinc-400">
+        <nav className="flex gap-6 text-sm font-medium text-muted">
           {links.map((link) => (
             <Link
               key={link.href}
