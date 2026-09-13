@@ -17,14 +17,12 @@ export default function Collaborations() {
             rel="noopener noreferrer"
             className="flex flex-col gap-2.5 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-accent/40"
           >
-            <div className="flex items-center justify-between gap-2">
-              <h3 className="font-bold tracking-tight">{project.name}</h3>
-              <span className="shrink-0 text-xs text-subtle">
-                con @{project.owner}
-              </span>
-            </div>
+            <h3 className="font-bold tracking-tight">{project.name}</h3>
             <p className="text-sm leading-relaxed text-muted">
               {project.description}
+            </p>
+            <p className="text-xs text-subtle">
+              Equipo: {project.collaborators.map((c) => `@${c}`).join(", ")}
             </p>
             <span className="w-fit rounded-full border border-border bg-tag px-2.5 py-1 text-xs font-medium text-[#374448]">
               {project.language}

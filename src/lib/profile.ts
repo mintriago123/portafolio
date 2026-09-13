@@ -21,14 +21,14 @@ export const profile = {
   collaborations: [
     {
       name: "CliMax",
-      owner: "AnThony69x",
+      collaborators: ["AnThony69x", "KristhianBello", "EmilioSle"],
       url: "https://github.com/AnThony69x/CliMax",
       description: "Aplicación móvil de alertas climáticas en tiempo real.",
       language: "TypeScript",
     },
     {
       name: "SOUNDLY",
-      owner: "Walthergl66",
+      collaborators: ["Walthergl66", "EmilioSle", "Akamnex666", "Sleide69"],
       url: "https://github.com/Walthergl66/SOUNDLY",
       description:
         "Aplicación web para gestión y reproducción de contenido de audio — Next.js y Supabase.",
@@ -36,14 +36,14 @@ export const profile = {
     },
     {
       name: "VELVET",
-      owner: "Walthergl66",
+      collaborators: ["Walthergl66", "EmilioSle", "Akamnex666", "Sleide69"],
       url: "https://github.com/Walthergl66/VELVET",
       description: "Proyecto de comercio electrónico Velvet.",
       language: "TypeScript",
     },
     {
       name: "Visualización de homicidios en Ecuador",
-      owner: "EZMayk",
+      collaborators: ["EZMayk", "KristhianBello"],
       url: "https://github.com/EZMayk/visualizacion-de-homicidios-en-el-ecuador",
       description:
         "Dashboard de visualización de datos sobre homicidios en Ecuador.",
