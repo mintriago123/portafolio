@@ -11,8 +11,9 @@ export const profile = {
   githubUrl: "https://github.com/mintriago123",
   email: "cadall1313@gmail.com",
   location: "Ecuador",
-  // Repos que no deben aparecer en Proyectos (duplicados, reemplazados, etc.)
-  hiddenRepos: ["bancoalimentostest"],
+  // Repos que no deben aparecer en Proyectos (duplicados, reemplazados,
+  // o el propio repo de este portafolio).
+  hiddenRepos: ["bancoalimentostest", "portafolio"],
   skills: [
     "TypeScript",
     "React",
