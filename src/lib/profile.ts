@@ -3,7 +3,9 @@ export const profile = {
   role: "Desarrollador de Software",
   // Placeholder hasta que exista un dominio real; se puede sobreescribir
   // con la env var sin tocar código.
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://michaelintriago.dev",
+  // `||` a propósito (no `??`): una env var vacía ("") también debe caer
+  // al placeholder, no solo cuando falta del todo.
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://michaelintriago.dev",
   bio: "Construyo aplicaciones web, herramientas y proyectos personales. Me interesan el desarrollo full-stack, los sistemas y los videojuegos.",
   github: "mintriago123",
   githubUrl: "https://github.com/mintriago123",
