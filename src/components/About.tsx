@@ -13,7 +13,7 @@ export default function About() {
       <div className="relative mx-auto flex max-w-4xl flex-col gap-10 px-6 py-16 sm:flex-row sm:items-start">
         <div className="flex shrink-0 items-center justify-center sm:justify-start">
           <div className="flex h-32 w-32 items-center justify-center rounded-full bg-accent-soft">
-            <span className="text-3xl font-bold text-[#2f6f65]">
+            <span className="text-3xl font-bold text-accent">
               {initials}
             </span>
           </div>

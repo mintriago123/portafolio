@@ -34,7 +34,7 @@ export default function Collaborations() {
             <p className="text-xs text-subtle">
               Equipo: {project.collaborators.map((c) => `@${c}`).join(", ")}
             </p>
-            <span className="w-fit rounded-full border border-border bg-tag px-2.5 py-1 text-xs font-medium text-[#374448]">
+            <span className="w-fit rounded-full border border-border bg-tag px-2.5 py-1 text-xs font-medium text-foreground">
               {project.language}
             </span>
           </a>

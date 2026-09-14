@@ -3,7 +3,7 @@ import { profile } from "@/lib/profile";
 export default function Contact() {
   return (
     <section id="contacto" className="relative scroll-mt-24 overflow-hidden">
-      <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-[#eaf3e9]/70" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-mint/70" />
 
       <div className="relative mx-auto max-w-4xl px-6 py-16">
         <span className="text-sm font-semibold text-accent">Hablemos</span>
@@ -14,7 +14,7 @@ export default function Contact() {
         <div className="mt-6 flex flex-wrap gap-4">
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#2f6f65] hover:shadow-lg"
+            className="rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-lg"
           >
             {profile.email}
           </a>

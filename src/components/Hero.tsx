@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section id="top" className="relative scroll-mt-24 overflow-hidden">
       <div className="pointer-events-none absolute -right-40 -top-48 h-[520px] w-[520px] rounded-full bg-accent-soft/70" />
-      <div className="pointer-events-none absolute -bottom-56 -left-40 h-[440px] w-[440px] rounded-full bg-[#eaf3e9]/60" />
+      <div className="pointer-events-none absolute -bottom-56 -left-40 h-[440px] w-[440px] rounded-full bg-mint/60" />
 
       <div className="relative mx-auto flex max-w-4xl flex-col gap-5 px-6 py-24 sm:py-32">
         <span className="animate-fade-in-up text-sm font-semibold text-accent">
@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="animate-fade-in-up flex gap-4 pt-2 [animation-delay:320ms]">
           <a
             href="#proyectos"
-            className="flex items-center gap-2 rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#2f6f65] hover:shadow-lg"
+            className="flex items-center gap-2 rounded-[10px] bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-lg"
           >
             Ver proyectos
             <svg

@@ -142,7 +142,7 @@ export default function ProjectCard({
             {highlights.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-2 text-sm leading-snug text-[#374448]"
+                className="flex items-start gap-2 text-sm leading-snug text-foreground"
               >
                 <CheckIcon className="mt-0.5 shrink-0 text-accent" />
                 {item}
@@ -154,13 +154,13 @@ export default function ProjectCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-border bg-tag px-2.5 py-1 text-xs font-medium text-[#374448]"
+              className="rounded-full border border-border bg-tag px-2.5 py-1 text-xs font-medium text-foreground"
             >
               {tag}
             </span>
           ))}
         </div>
-        <div className="mt-auto flex gap-5 border-t border-[#eef2f1] pt-3.5">
+        <div className="mt-auto flex gap-5 border-t border-border pt-3.5">
           <span className="flex items-center gap-1.5 text-sm font-semibold text-accent">
             Ver repositorio
             <ExternalLinkIcon />
